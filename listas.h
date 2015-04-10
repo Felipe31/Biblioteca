@@ -2,372 +2,372 @@
 #define LISTAS_H
 
 /*----------------------------------------COMUMENTE UTILIZADOS----------------------------------------*/
-#ifndef TIPOCHAVE_H 
+#ifndef TIPOCHAVE_H
 #define TIPOCHAVE_H
 
   typedef int TipoChave;
 
 #endif
 
-typedef struct tipoLS
+typedef struct TipoLS
 {
-	
-	tipoChave chave;
 
-	struct tipoLS * prox;
+	TipoChave chave;
 
-} tipoLS;
+	struct TipoLS * prox;
+
+} TipoLS;
 
 
 
-typedef struct tipoLD
+typedef struct TipoLD
 {
-	tipoChave chave;
+	TipoChave chave;
 
-	struct tipoLD * prox;
-	struct tipoLD * ant;
-	
-} tipoLD;
+	struct TipoLD * prox;
+	struct TipoLD * ant;
+
+} TipoLD;
 
 
 /*
- * Troca a chave dos nós informados
+ * Troca a chave dos nï¿½s informados
  */
-void trocaChvL(tipoLD * no1, tipoLD * no2);
+void trocaChvL(TipoLD * no1, TipoLD * no2);
 
 
-tipoLS * criaNoLS();
+TipoLS * criaNoLS();
 
-tipoLS * criaNoLD();
-
-
-/*----------------------------------------LISTA SIMPLESMENTE ENCADEADA COM CABEÇA----------------------------------------*/
-
- tipoLS * criaLScc();
+TipoLS * criaNoLD();
 
 
+/*----------------------------------------LISTA SIMPLESMENTE ENCADEADA COM CABEï¿½A----------------------------------------*/
 
- tipoLS * insereIniLScc(tipoLS *cabeca, tipoChave chave);
-
- tipoLS * insereFimLScc(tipoLS *cabeca, tipoChave chave);
-
- tipoLS * insereDepoisLScc(tipoLS *cabeca, tipoChave chave, tipoChave ref);
- 
-//CUIDAR COM A INSERSÃO ANTES DO CABECA!!!!!!!!!!!!!!!!!!!!!!!!1 ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
- tipoLS * insereAntesLScc(tipoLS *cabeca, tipoChave chave, tipoChave ref);
+ TipoLS * criaLScc();
 
 
 
-void removeIniLScc(tipoLS *cabeca);
+ TipoLS * insereIniLScc(TipoLS *cabeca, TipoChave chave);
 
-void removeFimLScc(tipoLS *cabeca);
+ TipoLS * insereFimLScc(TipoLS *cabeca, TipoChave chave);
 
-void removeNoLScc(tipoLS *cabeca, tipoChave chave);
+ TipoLS * insereDepoisLScc(TipoLS *cabeca, TipoChave chave, TipoChave ref);
 
-void removeLScc(tipoLS *cabeca);
+//CUIDAR COM A INSERSï¿½O ANTES DO CABECA!!!!!!!!!!!!!!!!!!!!!!!!1 ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+ TipoLS * insereAntesLScc(TipoLS *cabeca, TipoChave chave, TipoChave ref);
 
 
 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-tipoLS * pesquisaNoLScc(tipoLS *cabeca, tipoChave chave);
+void removeIniLScc(TipoLS *cabeca);
 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
+void removeFimLScc(TipoLS *cabeca);
+
+void removeNoLScc(TipoLS *cabeca, TipoChave chave);
+
+void removeLScc(TipoLS *cabeca);
+
+
+
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+TipoLS * pesquisaNoLScc(TipoLS *cabeca, TipoChave chave);
+
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
 //ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO  com o CABECA
-tipoLS * pesquisaPtrNoLScc(tipoLS *cabeca, tipoChave chave);
+TipoLS * pesquisaPtrNoLScc(TipoLS *cabeca, TipoChave chave);
 
 
 
-void imprimeLScc(tipoLS *cabeca);
+void imprimeLScc(TipoLS *cabeca);
 
-void imprimeInversoLScc(tipoLS *cabeca);
-
-
-
-/*----------------------------------------LISTA SIMPLESMENTE ENCADEADA SEM CABEÇA----------------------------------------*/
-
-tipoLS * criaLSsc();
+void imprimeInversoLScc(TipoLS *cabeca);
 
 
 
-tipoLS * insereIniLSsc(tipoLS ** list, tipoChave chave);
+/*----------------------------------------LISTA SIMPLESMENTE ENCADEADA SEM CABEï¿½A----------------------------------------*/
 
-tipoLS * insereFimLSsc(tipoLS ** list, tipoChave chave);
-
-tipoLS * insereDepoisLSsc(tipoLS * list, tipoChave chave);
-
-tipoLS * insereAntesLSsc(tipoLS ** list, tipoChave chave);
+TipoLS * criaLSsc();
 
 
 
-void removeIniLSsc(tipoLS ** list);
+TipoLS * insereIniLSsc(TipoLS ** list, TipoChave chave);
 
-void removeFimLSsc(tipoLS * list);
+TipoLS * insereFimLSsc(TipoLS ** list, TipoChave chave);
 
-void removeNoLSsc(tipoLS ** list, tipoChave chave);
+TipoLS * insereDepoisLSsc(TipoLS * list, TipoChave chave, TipoChave ref);
 
-void removeLSsc(tipoLS ** list);
-
-
-
-tipoLS * pesquisaNoLSsc(tipoLS * list, tipoChave chave);
-
-tipoLS * pesquisaPtrNoLSsc(tipoLS * list, tipoChave chave);
-
-
-tipoLS * imprimeLSsc(tipoLS * list);
-
-tipoLS * imprimeInversoLSsc(tipoLS * list);
+TipoLS * insereAntesLSsc(TipoLS ** list, TipoChave chave, TipoChave ref);
 
 
 
-/*----------------------------------------LISTA DUPLAMENTE ENCADEADA COM CABEÇA----------------------------------------*/
+void removeIniLSsc(TipoLS ** list);
 
- tipoLD * criaLDcc();
+void removeFimLSsc(TipoLS * list);
 
+void removeNoLSsc(TipoLS ** list, TipoChave chave);
 
-
- tipoLD * insereIniLDcc(tipoLD *cabeca, tipoChave chave);
-
- tipoLD * insereFimLDcc(tipoLD *cabeca, tipoChave chave);
-
- tipoLD * insereDepoisLDcc(tipoLD *cabeca, tipoChave chave, tipoChave ref);
- 
-//CUIDAR COM A INSERSÃO ANTES DO CABECA!!!!!!!!!!!!!!!!!!!!!!!!1 ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
- tipoLD * insereAntesLDcc(tipoLD *cabeca, tipoChave chave, tipoChave ref);
+void removeLSsc(TipoLS ** list);
 
 
 
-void removeIniLDcc(tipoLD *cabeca);
+TipoLS * pesquisaNoLSsc(TipoLS * list, TipoChave chave);
 
-void removeFimLDcc(tipoLD *cabeca);
-
-void removeNoLDcc(tipoLD *cabeca, tipoChave chave);
-
-void removeLDcc(tipoLD *cabeca);
+TipoLS * pesquisaPtrNoLSsc(TipoLS * list, TipoChave chave);
 
 
+TipoLS * imprimeLSsc(TipoLS * list);
 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-tipoLD * pesquisaNoLDcc(tipoLD *cabeca, tipoChave chave);
+TipoLS * imprimeInversoLSsc(TipoLS * list);
 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
+
+
+/*----------------------------------------LISTA DUPLAMENTE ENCADEADA COM CABEï¿½A----------------------------------------*/
+
+ TipoLD * criaLDcc();
+
+
+
+ TipoLD * insereIniLDcc(TipoLD *cabeca, TipoChave chave);
+
+ TipoLD * insereFimLDcc(TipoLD *cabeca, TipoChave chave);
+
+ TipoLD * insereDepoisLDcc(TipoLD *cabeca, TipoChave chave, TipoChave ref);
+
+//CUIDAR COM A INSERSï¿½O ANTES DO CABECA!!!!!!!!!!!!!!!!!!!!!!!!1 ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+ TipoLD * insereAntesLDcc(TipoLD *cabeca, TipoChave chave, TipoChave ref, TipoChave ref);
+
+
+
+void removeIniLDcc(TipoLD *cabeca);
+
+void removeFimLDcc(TipoLD *cabeca);
+
+void removeNoLDcc(TipoLD *cabeca, TipoChave chave);
+
+void removeLDcc(TipoLD *cabeca);
+
+
+
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+TipoLD * pesquisaNoLDcc(TipoLD *cabeca, TipoChave chave);
+
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
 //ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO  com o CABECA
-tipoLD * pesquisaPtrNoLDcc(tipoLD *cabeca, tipoChave chave);
+TipoLD * pesquisaPtrNoLDcc(TipoLD *cabeca, TipoChave chave);
 
 
 
-void imprimeLDcc(tipoLD *cabeca);
+void imprimeLDcc(TipoLD *cabeca);
 
-void imprimeInversoLDcc(tipoLD *cabeca);
+void imprimeInversoLDcc(TipoLD *cabeca);
 
 
 
-/*----------------------------------------LISTA DUPLAMENTE ENCADEADA SEM CABEÇA----------------------------------------*/
+/*----------------------------------------LISTA DUPLAMENTE ENCADEADA SEM CABEï¿½A----------------------------------------*/
 
 
-tipoLD * criaLDsc();
+TipoLD * criaLDsc();
 
 
 
-tipoLD * insereIniLDsc(tipoLD ** list, tipoChave chave);
+TipoLD * insereIniLDsc(TipoLD ** list, TipoChave chave);
 
-tipoLD * insereFimLDsc(tipoLD ** list, tipoChave chave);
+TipoLD * insereFimLDsc(TipoLD ** list, TipoChave chave);
 
-tipoLD * insereDepoisLDsc(tipoLD ** list, tipoChave chave);
+TipoLD * insereDepoisLDsc(TipoLD ** list, TipoChave chave, TipoChave ref);
 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-tipoLD * insereAntesLDsc(tipoLD ** list, tipoChave chave);
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+TipoLD * insereAntesLDsc(TipoLD ** list, TipoChave chave, TipoChave ref);
 
 
 
-void removeIniLDsc(tipoLD ** list);
+void removeIniLDsc(TipoLD ** list);
 
-void removeFimLDsc(tipoLD ** list);
+void removeFimLDsc(TipoLD ** list);
 
-void removeNoLDsc(tipoLD ** list, tipoChave chave);
+void removeNoLDsc(TipoLD ** list, TipoChave chave);
 
-void removeLDsc(tipoLD ** list);
+void removeLDsc(TipoLD ** list);
 
 
 
-tipoLD * pesquisaNoLDsc(tipoLD * list, tipoChave chave);
+TipoLD * pesquisaNoLDsc(TipoLD * list, TipoChave chave);
 
-tipoLD * pesquisaPtrNoLDsc(tipoLD * list, tipoChave chave);
+TipoLD * pesquisaPtrNoLDsc(TipoLD * list, TipoChave chave);
 
 
-tipoLD * imprimeLDsc(tipoLD * list);
+TipoLD * imprimeLDsc(TipoLD * list);
 
-tipoLD * imprimeInversoLDsc(tipoLD * list);
+TipoLD * imprimeInversoLDsc(TipoLD * list);
 
 
 
-/*----------------------------------------LISTA CIRCULAR SIMPLESMENTE ENCADEADA COM CABEÇA----------------------------------------*/
+/*----------------------------------------LISTA CIRCULAR SIMPLESMENTE ENCADEADA COM CABEï¿½A----------------------------------------*/
 
-tipoLS * criaLCScc();
+TipoLS * criaLCScc();
 
 
-tipoLS * insereIniLCScc(tipoLS ** ult, tipoChave chave);
+TipoLS * insereIniLCScc(TipoLS ** ult, TipoChave chave);
 
-tipoLS * insereFimLCScc(tipoLS ** ult, tipoChave chave);
+TipoLS * insereFimLCScc(TipoLS ** ult, TipoChave chave);
 
-tipoLS * insereDepoisLCScc(tipoLS ** ult, tipoChave chave);
+TipoLS * insereDepoisLCScc(TipoLS ** ult, TipoChave chave, TipoChave ref);
 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-tipoLS * insereAntesLCScc(tipoLS ** ult, tipoChave chave);
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+TipoLS * insereAntesLCScc(TipoLS ** ult, TipoChave chave, TipoChave ref);
 
 
 
-void removeIniLCScc(tipoLS ** ult, tipoChave chave);
+void removeIniLCScc(TipoLS ** ult, TipoChave chave);
 
-void removeFimLCScc(tipoLS ** ult, tipoChave chave);
+void removeFimLCScc(TipoLS ** ult, TipoChave chave);
 
-void removeNoLCScc(tipoLS ** ult, tipoChave chave);
+void removeNoLCScc(TipoLS ** ult, TipoChave chave);
 
-void removeLCScc(tipoLS ** ult);
+void removeLCScc(TipoLS ** ult);
 
 
 
-tipoLS * pesquisaNoLCScc(tipoLS * ult, tipoChave chave);
+TipoLS * pesquisaNoLCScc(TipoLS * ult, TipoChave chave);
 
-tipoLS * pesquisaPtrNoLCScc(tipoLS * ult, tipoChave chave);
+TipoLS * pesquisaPtrNoLCScc(TipoLS * ult, TipoChave chave);
 
 
 
-void imprimeLCScc(tipoLS * ult);
+void imprimeLCScc(TipoLS * ult);
 
-void imprimeInversoLCScc(tipoLS * ult);
+void imprimeInversoLCScc(TipoLS * ult);
 
 
 
-/*----------------------------------------LISTA CIRCULAR SIMPLESMENTE ENCADEADA SEM CABEÇA----------------------------------------*/
+/*----------------------------------------LISTA CIRCULAR SIMPLESMENTE ENCADEADA SEM CABEï¿½A----------------------------------------*/
 
-tipoLS * criaLCSsc();
+TipoLS * criaLCSsc();
 
 
-tipoLS * insereIniLCSsc(tipoLS ** ult, tipoChave chave);
+TipoLS * insereIniLCSsc(TipoLS ** ult, TipoChave chave);
 
-tipoLS * insereFimLCSsc(tipoLS ** ult, tipoChave chave);
+TipoLS * insereFimLCSsc(TipoLS ** ult, TipoChave chave);
 
-tipoLS * insereDepoisLCSsc(tipoLS ** ult, tipoChave chave);
+TipoLS * insereDepoisLCSsc(TipoLS ** ult, TipoChave chave, TipoChave ref);
 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-tipoLS * insereAntesLCSsc(tipoLS ** ult, tipoChave chave);
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+TipoLS * insereAntesLCSsc(TipoLS ** ult, TipoChave chave, TipoChave ref);
 
 
 
-void removeIniLCSsc(tipoLS ** ult, tipoChave chave);
+void removeIniLCSsc(TipoLS ** ult, TipoChave chave);
 
-void removeFimLCSsc(tipoLS ** ult, tipoChave chave);
+void removeFimLCSsc(TipoLS ** ult, TipoChave chave);
 
-void removeNoLCSsc(tipoLS ** ult, tipoChave chave);
+void removeNoLCSsc(TipoLS ** ult, TipoChave chave);
 
-void removeLCSsc(tipoLS ** ult);
+void removeLCSsc(TipoLS ** ult);
 
 
 
-tipoLS * pesquisaNoLCSsc(tipoLS * ult, tipoChave chave);
+TipoLS * pesquisaNoLCSsc(TipoLS * ult, TipoChave chave);
 
-tipoLS * pesquisaPtrNoLCSsc(tipoLS * ult, tipoChave chave);
+TipoLS * pesquisaPtrNoLCSsc(TipoLS * ult, TipoChave chave);
 
 
 
-void imprimeLCSsc(tipoLS * ult);
+void imprimeLCSsc(TipoLS * ult);
 
-void imprimeInversoLCSsc(tipoLS * ult);
+void imprimeInversoLCSsc(TipoLS * ult);
 
 
 
-/*----------------------------------------LISTA CIRCULAR DUPLAMENTE ENCADEADA COM CABEÇA----------------------------------------*/
+/*----------------------------------------LISTA CIRCULAR DUPLAMENTE ENCADEADA COM CABEï¿½A----------------------------------------*/
 
-tipoLD * criaLCDcc();
+TipoLD * criaLCDcc();
 
 
-tipoLD * insereIniLCDcc(tipoLD ** ult, tipoChave chave);
+TipoLD * insereIniLCDcc(TipoLD ** ult, TipoChave chave);
 
-tipoLD * insereFimLCDcc(tipoLD ** ult, tipoChave chave);
+TipoLD * insereFimLCDcc(TipoLD ** ult, TipoChave chave);
 
-tipoLD * insereDepoisLCDcc(tipoLD ** ult, tipoChave chave);
+TipoLD * insereDepoisLCDcc(TipoLD ** ult, TipoChave chave, TipoChave ref);
 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-tipoLD * insereAntesLCDcc(tipoLD ** ult, tipoChave chave);
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+TipoLD * insereAntesLCDcc(TipoLD ** ult, TipoChave chave, TipoChave ref);
 
 
 
-void removeIniLCDcc(tipoLD ** ult, tipoChave chave);
+void removeIniLCDcc(TipoLD ** ult, TipoChave chave);
 
-void removeFimLCDcc(tipoLD ** ult, tipoChave chave);
+void removeFimLCDcc(TipoLD ** ult, TipoChave chave);
 
-void removeNoLCDcc(tipoLD ** ult, tipoChave chave);
+void removeNoLCDcc(TipoLD ** ult, TipoChave chave);
 
-void removeLCDcc(tipoLD ** ult);
+void removeLCDcc(TipoLD ** ult);
 
 
 
-tipoLD * pesquisaNoLCDcc(tipoLD * ult, tipoChave chave);
+TipoLD * pesquisaNoLCDcc(TipoLD * ult, TipoChave chave);
 
-tipoLD * pesquisaPtrNoLCDcc(tipoLD * ult, tipoChave chave);
+TipoLD * pesquisaPtrNoLCDcc(TipoLD * ult, TipoChave chave);
 
 
 
-void imprimeLCDcc(tipoLD * ult);
+void imprimeLCDcc(TipoLD * ult);
 
-void imprimeInversoLCDcc(tipoLD * ult);
+void imprimeInversoLCDcc(TipoLD * ult);
 
 
 
-/*----------------------------------------LISTA CIRCULAR DUPLAMENTE ENCADEADA SEM CABEÇA----------------------------------------*/
+/*----------------------------------------LISTA CIRCULAR DUPLAMENTE ENCADEADA SEM CABEï¿½A----------------------------------------*/
 
-tipoLD * criaLCDsc();
+TipoLD * criaLCDsc();
 
 
-tipoLD * insereIniLCDsc(tipoLD ** ult, tipoChave chave);
+TipoLD * insereIniLCDsc(TipoLD ** ult, TipoChave chave);
 
-tipoLD * insereFimLCDsc(tipoLD ** ult, tipoChave chave);
+TipoLD * insereFimLCDsc(TipoLD ** ult, TipoChave chave);
 
-tipoLD * insereDepoisLCDsc(tipoLD ** ult, tipoChave chave);
+TipoLD * insereDepoisLCDsc(TipoLD ** ult, TipoChave chave, TipoChave ref);
 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO 
-tipoLD * insereAntesLCDsc(tipoLD ** ult, tipoChave chave);
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+//ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
+TipoLD * insereAntesLCDsc(TipoLD ** ult, TipoChave chave, TipoChave ref);
 
 
 
-void removeIniLCDsc(tipoLD ** ult, tipoChave chave);
+void removeIniLCDsc(TipoLD ** ult, TipoChave chave);
 
-void removeFimLCDsc(tipoLD ** ult, tipoChave chave);
+void removeFimLCDsc(TipoLD ** ult, TipoChave chave);
 
-void removeNoLCDsc(tipoLD ** ult, tipoChave chave);
+void removeNoLCDsc(TipoLD ** ult, TipoChave chave);
 
-void removeLCDsc(tipoLD ** ult);
+void removeLCDsc(TipoLD ** ult);
 
 
 
-tipoLD * pesquisaNoLCDsc(tipoLD * ult, tipoChave chave);
+TipoLD * pesquisaNoLCDsc(TipoLD * ult, TipoChave chave);
 
-tipoLD * pesquisaPtrNoLCDsc(tipoLD * ult, tipoChave chave);
+TipoLD * pesquisaPtrNoLCDsc(TipoLD * ult, TipoChave chave);
 
 
 
-void imprimeLCDsc(tipoLD * ult);
+void imprimeLCDsc(TipoLD * ult);
 
-void imprimeInversoLCDsc(tipoLD * ult);
+void imprimeInversoLCDsc(TipoLD * ult);
 
 
 

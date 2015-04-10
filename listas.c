@@ -8,12 +8,12 @@
 
 
 
-void trocaChvL(tipoLD * no1, tipoLD * no2)
+void trocaChvL(TipoLD * no1, TipoLD * no2)
 {
     assert(no1);
     assert(no2);
 
-    tipoChave aux = no1 -> chave;
+    TipoChave aux = no1 -> chave;
 
     no1 -> chave = no2 -> chave;
 
@@ -22,21 +22,21 @@ void trocaChvL(tipoLD * no1, tipoLD * no2)
     return;
 }
 
-tipoLS * criaNoLS()
+TipoLS * criaNoLS()
 {
-    return (tipoLS *) malloc(sizeof(tipoLS *));
+    return (TipoLS *) malloc(sizeof(TipoLS *));
 }
 
-tipoLS * criaNoLD()
+TipoLS * criaNoLD()
 {
-    return (tipoLD *) malloc(sizeof(tipoLD *));
+    return (TipoLD *) malloc(sizeof(TipoLD *));
 }
 
 /*----------------------------------------LISTA SIMPLESMENTE ENCADEADA COM CABEÇA----------------------------------------*/
 
- tipoLS * criaLScc()
+ TipoLS * criaLScc()
  {
-    tipoLS * ptr;
+    TipoLS * ptr;
 
     ptr = criaNoLS();
     if(!ptr) return NULL;              // Verifica se malloc retornou NULL, se sim, então criaLScc retorna NULL
@@ -49,11 +49,11 @@ tipoLS * criaNoLD()
 
 
 
- tipoLS * insereIniLScc(tipoLS *cabeca, tipoChave chave)
+ TipoLS * insereIniLScc(TipoLS *cabeca, TipoChave chave)
  {
     assert(cabeca);
 
-    tipoLS * ptr;
+    TipoLS * ptr;
 
     ptr = criaNoLS();
     if(!ptr) return NULL;
@@ -68,11 +68,11 @@ tipoLS * criaNoLD()
 
 
 
- tipoLS * insereFimLScc(tipoLS *cabeca, tipoChave chave)
+ TipoLS * insereFimLScc(TipoLS *cabeca, TipoChave chave)
  {
     assert(cabeca);
-    
-    tipoLS * ptr, * ult = cabeca;
+
+    TipoLS * ptr, * ult = cabeca;
 
     ptr = criaNoLS();
     if(!ptr) return NULL;
@@ -90,11 +90,11 @@ tipoLS * criaNoLD()
  }
 
 
- tipoLS * insereDepoisLScc(tipoLS *cabeca, tipoChave chave, tipoChave ref)
+ TipoLS * insereDepoisLScc(TipoLS *cabeca, TipoChave chave, TipoChave ref)
  {
     assert(cabeca);
 
-    tipoLS * ptr, * ptrRef;
+    TipoLS * ptr, * ptrRef;
 
     ptr = criaNoLS();
     if(!ptr) return NULL;
@@ -112,11 +112,11 @@ tipoLS * criaNoLD()
 //CUIDAR COM A INSERSÃO ANTES DO CABECA!!!!!!!!!!!!!!!!!!!!!!!!1 ATENCAO
 //ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
 //ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
- tipoLS * insereAntesLScc(tipoLS *cabeca, tipoChave chave, tipoChave ref)
+ TipoLS * insereAntesLScc(TipoLS *cabeca, TipoChave chave, TipoChave ref)
  {
     assert(cabeca);
 
-    tipoLS * ptr, * antRef;
+    TipoLS * ptr, * antRef;
 
     ptr = criaNoLS();
     if(!ptr) return NULL;
@@ -133,11 +133,11 @@ tipoLS * criaNoLD()
 
 
 
-void removeIniLScc(tipoLS *cabeca)
+void removeIniLScc(TipoLS *cabeca)
 {
     assert(cabeca);
 
-    tipoLS * aux;
+    TipoLS * aux;
 
     aux = (cabeca -> prox) -> prox;
 
@@ -146,11 +146,11 @@ void removeIniLScc(tipoLS *cabeca)
     return;
 }
 
-void removeFimLScc(tipoLS *cabeca)
+void removeFimLScc(TipoLS *cabeca)
 {
     assert(cabeca);
 
-    tipoLS * ult = cabeca;
+    TipoLS * ult = cabeca;
 
     while((ult -> prox) -> prox)
     {
@@ -163,11 +163,11 @@ void removeFimLScc(tipoLS *cabeca)
     return;
 }
 
-void removeNoLScc(tipoLS *cabeca, tipoChave chave)
+void removeNoLScc(TipoLS *cabeca, TipoChave chave)
 {
     assert(cabeca);
 
-    tipoLS * ant, * aux;
+    TipoLS * ant, * aux;
     ant = pesquisaPtrNoLScc(cabeca, chave);
     if(!ant) return;
 
@@ -178,11 +178,11 @@ void removeNoLScc(tipoLS *cabeca, tipoChave chave)
     return;
 }
 
-void removeLScc(tipoLS *cabeca)
+void removeLScc(TipoLS *cabeca)
 {
     assert(cabeca);
 
-    tipoLS * aux, * no;
+    TipoLS * aux, * no;
 
     no = cabeca -> prox;
 
@@ -201,7 +201,7 @@ void removeLScc(tipoLS *cabeca)
 //ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
 //ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
 //ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
-tipoLS * pesquisaNoLScc(tipoLS *cabeca, tipoChave chave)
+TipoLS * pesquisaNoLScc(TipoLS *cabeca, TipoChave chave)
 {
     assert(cabeca);
 
@@ -223,7 +223,7 @@ tipoLS * pesquisaNoLScc(tipoLS *cabeca, tipoChave chave)
 //ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO
 //ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO ATENCAO  com o CABECA
 
-tipoLS * pesquisaPtrNoLScc(tipoLS *cabeca, tipoChave chave)
+TipoLS * pesquisaPtrNoLScc(TipoLS *cabeca, TipoChave chave)
 {
     assert(cabeca);
 
@@ -242,7 +242,7 @@ tipoLS * pesquisaPtrNoLScc(tipoLS *cabeca, tipoChave chave)
 
 
 //FUNCIONA APENAS COM TIPOCHAVE = INT
-void imprimeLScc(tipoLS *cabeca)
+void imprimeLScc(TipoLS *cabeca)
 {
     assert(cabeca);
 
@@ -261,12 +261,12 @@ void imprimeLScc(tipoLS *cabeca)
 	return;
 }
 
-void imprimeInversoLScc(tipoLS *cabeca)
+void imprimeInversoLScc(TipoLS *cabeca)
 {
     assert(cabeca);
 
 	int i = 0, j = 0;
-	tipoLS * aux = cabeca;
+	TipoLS * aux = cabeca;
 
 	while(cabeca)
 	{
@@ -300,71 +300,139 @@ void imprimeInversoLScc(tipoLS *cabeca)
 /*----------------------------------------LISTA SIMPLESMENTE ENCADEADA SEM CABEÇA----------------------------------------*/
 
 
-tipoLS * criaLSsc()
+TipoLS * criaLSsc()
 {
     return NULL;
 }
 
 
 
-tipoLS * insereIniLSsc(tipoLS ** list, tipoChave chave)
+TipoLS * insereIniLSsc(TipoLS ** list, TipoChave chave)
 {
     assert(list);
-    assert(*list);
 
 
-    tipoLS * ptr = criaNoLS();
+    TipoLS * ptr = criaNoLS();
     if(!ptr) return NULL;
 
+    ptr -> prox = *list
 
-    ptr -> prox = *list;
     *list = ptr;
 
     return ptr;
 }
 
-tipoLS * insereFimLSsc(tipoLS * list, tipoChave chave)
+TipoLS * insereFimLSsc(TipoLS ** list, TipoChave chave)
 {
     assert(list);
 
-    ptr = criaNoLS();
+    TipoLS * ptr = criaNoLS();
     if(!ptr) return NULL;
-// FAZER IF PARA LIST == NULL
+
+    ptr -> chave = chave;
+    ptr -> prox = NULL;
 
 
-    while(list -> prox)
+    if(!(*list))
     {
+        return (*list) = ptr;
+    }
+
+    TipoLS * no = *list;
+
+    while(no -> prox)
+    {
+    no = no -> prox;
+    }
+
+    no -> prox = ptr;
+
+    return ptr;
+}
+
+TipoLS * insereDepoisLSsc(TipoLS * list, TipoChave chave, TipoChave ref)
+{
+    assert(list);
+    assert(*list);
+
+    TipoLS * ptr = criaNoLS();
+    if(!ptr) return NULL;
+
+    ptr -> chave = chave;
+
+
+
+    while(list -> chave != ref)
+    {
+        if(!(list -> prox))
+            return NULL;
+
         list = list -> prox;
     }
 
-    list -> prox
+    ptr -> prox = list -> prox;
+    list -> prox = ptr;
+
+
+    return ptr;
+}
+
+TipoLS * insereAntesLSsc(TipoLS * list, TipoChave chave, TipoChave ref)
+{
+    assert(list);
+    assert(*list);
+
+    TipoLS * ptr = criaNoLS();
+    if(!ptr) return NULL;
+
+
+    while((list -> prox) -> chave != ref)
+    {
+        if(!(list -> prox))
+            return NULL;
+
+        list = list -> prox;
+    }
+
+    ptr -> chave = chave;
+    ptr -> prox = list -> prox;
+
+    list -> prox = ptr;
+
+    return ptr;
 
 }
 
-tipoLS * insereDepoisLSsc(tipoLS * list, tipoChave chave);
 
-tipoLS * insereAntesLSsc(tipoLS * list, tipoChave chave);
+void removeIniLSsc(TipoLS ** list)
+{
+    assert(list);
+    assert(*list);
+
+    TipoLS ptr = (*list) -> prox;
+
+    free(*list);
+
+    *list = ptr;
+
+}
+
+void removeFimLSsc(TipoLS * list);
+
+void removeNoLSsc(TipoLS ** list, TipoChave chave);
+
+void removeLSsc(TipoLS ** list);
 
 
 
-void removeIniLSsc(tipoLS ** list);
+TipoLS * pesquisaNoLSsc(TipoLS * list, TipoChave chave);
 
-void removeFimLSsc(tipoLS * list);
-
-void removeNoLSsc(tipoLS ** list, tipoChave chave);
-
-void removeLSsc(tipoLS ** list);
+TipoLS * pesquisaPtrNoLSsc(TipoLS * list, TipoChave chave);
 
 
+TipoLS * imprimeLSsc(TipoLS * list);
 
-tipoLS * pesquisaNoLSsc(tipoLS * list, tipoChave chave);
-
-tipoLS * pesquisaPtrNoLSsc(tipoLS * list, tipoChave chave);
-
-
-tipoLS * imprimeLSsc(tipoLS * list);
-
-tipoLS * imprimeInversoLSsc(tipoLS * list);
+TipoLS * imprimeInversoLSsc(TipoLS * list);
 
 
 
@@ -491,10 +559,10 @@ tipoLS * imprimeInversoLSsc(tipoLS * list);
 
 /*----------------------------------------LISTA DUPLAMENTE ENCADEADA COM CABEÇA----------------------------------------
 
-tipoLDcc * criaLDcc()
+TipoLDcc * criaLDcc()
 {
-    tipoLDcc * p;
-    p = (tipoLDcc *) malloc(sizeof(tipoLDcc));
+    TipoLDcc * p;
+    p = (TipoLDcc *) malloc(sizeof(TipoLDcc));
     if (p == NULL) return NULL;
 
     p -> chave = -1;
@@ -506,12 +574,12 @@ tipoLDcc * criaLDcc()
 
 
 
-tipoLDcc * insereIniLDcc(tipoLDcc *cabeca, int chave)
+TipoLDcc * insereIniLDcc(TipoLDcc *cabeca, int chave)
 {
 
     assert (cabeca);
 
-    tipoLDcc * aux, * p = (tipoLDcc *) malloc(sizeof(tipoLDcc));
+    TipoLDcc * aux, * p = (TipoLDcc *) malloc(sizeof(TipoLDcc));
     if (!p) return NULL;
 
 
@@ -528,12 +596,12 @@ tipoLDcc * insereIniLDcc(tipoLDcc *cabeca, int chave)
 }
 
 
-void removeIniLDcc(tipoLDcc *cabeca)
+void removeIniLDcc(TipoLDcc *cabeca)
 {
     assert (cabeca);
     if (cabeca -> prox == NULL) return;
 
-    tipoLDcc * aux = cabeca -> prox -> prox;
+    TipoLDcc * aux = cabeca -> prox -> prox;
 
     free (cabeca -> prox);
 
@@ -543,10 +611,10 @@ void removeIniLDcc(tipoLDcc *cabeca)
     return;
 }
 
-void imprimeLDcc (tipoLDcc * cabeca)
+void imprimeLDcc (TipoLDcc * cabeca)
 {
     assert (cabeca);
-    tipoLDcc * p = cabeca -> prox;
+    TipoLDcc * p = cabeca -> prox;
 
     while(1)
     {
@@ -562,10 +630,10 @@ void imprimeLDcc (tipoLDcc * cabeca)
     }
 }
 
-void imprimeInversoLDcc (tipoLDcc * cabeca)
+void imprimeInversoLDcc (TipoLDcc * cabeca)
 {
     assert (cabeca);
-    tipoLDcc * p = cabeca;
+    TipoLDcc * p = cabeca;
 
     while(p -> prox != NULL)
     {
@@ -598,11 +666,11 @@ void imprimeInversoLDcc (tipoLDcc * cabeca)
 *----------------------------------------LISTA CIRCULAR SIMPLES COM CABEÇA----------------------------------------*
 
 
-tipoLScc * criaLCScc()
+TipoLScc * criaLCScc()
 {
 
-    tipoLScc * p;
-    p = (tipoLScc *) malloc(sizeof(tipoLScc));
+    TipoLScc * p;
+    p = (TipoLScc *) malloc(sizeof(TipoLScc));
     if (p == NULL) return NULL;
 
     p -> chave = -1;
@@ -614,15 +682,15 @@ tipoLScc * criaLCScc()
 
 
 
-tipoLScc *insereIniLCScc(tipoLScc **ult, int chave)
+TipoLScc *insereIniLCScc(TipoLScc **ult, int chave)
 {
 
     assert(ult);
     assert(*ult);
 
-    tipoLScc * cabeca = (*ult) -> prox;
+    TipoLScc * cabeca = (*ult) -> prox;
 
-    tipoLScc * aux, * p = (tipoLScc *) malloc(sizeof(tipoLScc));
+    TipoLScc * aux, * p = (TipoLScc *) malloc(sizeof(TipoLScc));
     if (!p) return NULL;
 
     if ( cabeca -> prox == cabeca)
@@ -647,15 +715,15 @@ tipoLScc *insereIniLCScc(tipoLScc **ult, int chave)
 }
 
 
-void removeIniLCScc(tipoLScc **ult)
+void removeIniLCScc(TipoLScc **ult)
 {
     assert(ult);
     assert(*ult);
-    tipoLScc * cabeca = (*ult) -> prox;
+    TipoLScc * cabeca = (*ult) -> prox;
 
     if (cabeca -> prox == cabeca) return;
 
-    tipoLScc * aux = cabeca -> prox;
+    TipoLScc * aux = cabeca -> prox;
 
     free (cabeca);
 
@@ -664,10 +732,10 @@ void removeIniLCScc(tipoLScc **ult)
     return;
 }
 
-void imprimeLCScc (tipoLScc * ult)
+void imprimeLCScc (TipoLScc * ult)
 {
     assert (ult);
-    tipoLScc * p = ult -> prox -> prox;
+    TipoLScc * p = ult -> prox -> prox;
 
     while(1)
     {
@@ -701,9 +769,9 @@ void imprimeLCScc (tipoLScc * ult)
 *----------------------------------------LISTA CIRCULAR DUPLAMENTE ENCADEADA SEM CABEÇA----------------------------------------*
 
 
-tipoLDsc * criaLCDsc()
+TipoLDsc * criaLCDsc()
 {
-    tipoLDsc * p = NULL;
+    TipoLDsc * p = NULL;
 
 
     return p;
@@ -711,13 +779,13 @@ tipoLDsc * criaLCDsc()
 
 
 
-tipoLDsc *insereIniLCDsc(tipoLDsc **ult, int chave)
+TipoLDsc *insereIniLCDsc(TipoLDsc **ult, int chave)
 {
 
 
     assert(ult);
 
-    tipoLDsc * aux, * p = (tipoLDsc *) malloc(sizeof(tipoLDsc));
+    TipoLDsc * aux, * p = (TipoLDsc *) malloc(sizeof(TipoLDsc));
     if (!p) return NULL;
 
     if (!(*ult))
@@ -743,11 +811,11 @@ tipoLDsc *insereIniLCDsc(tipoLDsc **ult, int chave)
 }
 
 
-void removeIniLCDsc(tipoLDsc **ult)
+void removeIniLCDsc(TipoLDsc **ult)
 {
     if ((*ult) -> prox == NULL) return;
 
-    tipoLDsc * aux = (*ult) -> prox -> prox;
+    TipoLDsc * aux = (*ult) -> prox -> prox;
 
     free ((*ult) -> prox);
 
@@ -757,10 +825,10 @@ void removeIniLCDsc(tipoLDsc **ult)
     return;
 }
 
-void imprimeLCDsc (tipoLDsc * ult)
+void imprimeLCDsc (TipoLDsc * ult)
 {
     assert (ult);
-    tipoLDsc * p = ult -> prox;
+    TipoLDsc * p = ult -> prox;
 
     while(1)
     {
@@ -775,10 +843,10 @@ void imprimeLCDsc (tipoLDsc * ult)
     }
 }
 
-void imprimeInversoLCDsc (tipoLDsc * ult)
+void imprimeInversoLCDsc (TipoLDsc * ult)
 {
     assert (ult);
-    tipoLDsc * p = ult;
+    TipoLDsc * p = ult;
 
     while(1)
     {
