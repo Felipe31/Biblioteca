@@ -24,12 +24,12 @@ void trocaChvL(TipoLD * no1, TipoLD * no2)
 
 TipoLS * criaNoLS()
 {
-    return (TipoLS *) malloc(sizeof(TipoLS *));
+    return (TipoLS *) malloc(sizeof(TipoLS));
 }
 
 TipoLS * criaNoLD()
 {
-    return (TipoLD *) malloc(sizeof(TipoLD *));
+    return (TipoLD *) malloc(sizeof(TipoLD));
 }
 
 /*----------------------------------------LISTA SIMPLESMENTE ENCADEADA COM CABEÇA----------------------------------------*/
