@@ -277,7 +277,7 @@ int particao(TipoVetor v[], int ini, int fim)
     }
 
     trocaVetor(v, pivot, j);
-
+   
     return j;
 }
 
@@ -308,7 +308,9 @@ int particaoAleatorio(TipoVetor v[], int ini, int fim)
 
     }
 
-    return pivot;
+    trocaVetor(v, pivot, j);
+
+    return j;
 }
 
 
